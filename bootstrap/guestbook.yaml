@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootguest
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: guestbook
+    repoURL: https://github.com/kempy007/appset/
+    targetRevision: batch1
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
