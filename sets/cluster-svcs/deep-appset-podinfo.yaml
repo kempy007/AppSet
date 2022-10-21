@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: appset-guest
+  name: appset-deep-podinfo
   namespace: argocd
 spec:
   generators:
@@ -9,13 +9,13 @@ spec:
   template: 
     # This is a template Argo CD Application, but with support for parameter substitution.
     metadata:
-      name: '{{name}}-appset-guest'
+      name: '{{name}}-appset-deep-podinfo'
     spec:
       project: "default"
       source:
         repoURL: https://github.com/kempy007/appset/
         targetRevision: batch1
-        path: guestbook
+        path: sets/app/podinfo
       destination:
         server: '{{server}}'
         namespace: argocd
