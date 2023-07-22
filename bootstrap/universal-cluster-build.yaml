@@ -13,7 +13,7 @@ spec:
     metadata:
       name: '{{name}}-bootstrap-universal-cluster-build'
     spec:
-      project: "default"
+      project: default
       source:
         repoURL: https://github.com/kempy007/appset/
         targetRevision: main
