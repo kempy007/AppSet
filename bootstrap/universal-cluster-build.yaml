@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: bootstrap-universal-cluster-build
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"  
 spec:
   generators:
   - clusters: {} # This is a generator, specifically, a cluster generator.
