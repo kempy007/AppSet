@@ -11,7 +11,7 @@ spec:
   template: 
     # This is a template Argo CD Application, but with support for parameter substitution.
     metadata:
-      name: '{{name}}-appset-cluster-svcs'
+      name: '{{name}}-bootstrap-universal-cluster-build'
     spec:
       project: "default"
       source:
@@ -22,4 +22,6 @@ spec:
         server: '{{server}}'
         namespace: argocd
       syncPolicy:
-        automated: {}
+        automated: 
+          prune: true
+          selfHeal: true
