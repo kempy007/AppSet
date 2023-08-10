@@ -1,23 +1,23 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: appset-spire
-  namespace: argocd
-spec:
-  generators:
-  - clusters: {} # This is a generator, specifically, a cluster generator.
-  template: 
-    # This is a template Argo CD Application, but with support for parameter substitution.
-    metadata:
-      name: '{{name}}-appset-spire'
-    spec:
-      project: "default"
-      source:
-        repoURL: https://github.com/kempy007/k8s-spire/
-        targetRevision: main
-        path: manifest
-      destination:
-        server: '{{server}}'
-        namespace: argocd
-      syncPolicy:
-        automated: {}
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: appset-spire
+#   namespace: argocd
+# spec:
+#   generators:
+#   - clusters: {} # This is a generator, specifically, a cluster generator.
+#   template: 
+#     # This is a template Argo CD Application, but with support for parameter substitution.
+#     metadata:
+#       name: '{{name}}-appset-spire'
+#     spec:
+#       project: "default"
+#       source:
+#         repoURL: https://github.com/kempy007/k8s-spire/
+#         targetRevision: main
+#         path: manifest
+#       destination:
+#         server: '{{server}}'
+#         namespace: argocd
+#       syncPolicy:
+#         automated: {}
